@@ -55,12 +55,12 @@ if [[ $update == *"\"success\":false"* ]]; then
     message="API UPDATE FAILED. DUMPING RESULTS:\n$update"
     log "$message"
     echo -e "$message"
-    curl -s -X POST https://sctapi.ftqq.com/$SCTKEY.send?title="CloudFlare API update failed." 2>&1 >/dev/null
+    curl -s -X POST "https://sctapi.ftqq.com/$SCTKEY.send?title=CloudFlare%20API%20update%20failed." 2>&1 >/dev/null
     exit 1 
 else
     message="IP changed to: $ip"
     echo "$ip" > $ip_file
     log "$message"
     echo "$message"
-    curl -s -X POST https://sctapi.ftqq.com/$SCTKEY.send?title="CloudFlare IP changed to: $ip" 2>&1 >/dev/null
+    curl -s -X POST "https://sctapi.ftqq.com/$SCTKEY.send?title=CloudFlare%20IP%20changed&desp=$ip" 2>&1 >/dev/null
 fi
